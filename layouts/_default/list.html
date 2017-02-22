@@ -1,0 +1,26 @@
+{{ define "title" }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ end }}
+
+{{ define "main" }}
+<div class="block-group">
+  <div class="main block">
+
+    {{ if not .IsHome }}
+    <header>
+      <h1 class="title">{{ .Title }}</h1>
+    </header>
+    {{ end }}
+
+    <div>
+      {{ range $i, $p := (.Paginate .Data.Pages).Pages }}
+      <div>{{ $p.Render "li" }}</div>
+      {{ if eq (mod (add $i 1) 2) 0 }}<div class="col-sm-12"></div>{{ end }}
+      {{ end }}
+    </div>
+
+    {{ partial "pagination.html" . }}
+  </div>
+  <div class="nav block">
+    {{ partial "sidebar.html" . }}
+  </div>
+</div>
+{{ end }}
