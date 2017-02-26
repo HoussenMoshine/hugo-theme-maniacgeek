@@ -10,7 +10,7 @@
 
   <body>
     {{ if ne (getenv "HUGO_ENV") "DEV" }}
-    {{ template "_internal/google_analytics.html" . }}
+
     {{ end }}
 
     <header class="l-header">
@@ -32,12 +32,12 @@
         <p>{{ with .Site.Copyright }}{{ . | safeHTML }}{{ else }}<span class="h-logo">&copy; {{ .Site.Title }}</span>{{ end }}</p>
         <aside>
           <p>Développé avec <a href="https://gohugo.io/">Hugo</a>.</p>
-          <p><a href="https://github.com/dim0627/hugo_theme_robust">Maniac Geek</a> développé <a href="http://yet.unresolved.xyz/">Houssen Moshinaly</a>.</p>
+          <p><a href="https://github.com/HoussenMoshine/hugo-theme-maniacgeek">Maniac Geek</a> développé <a href="https://mister.maniacgeek.net/">Houssen Moshinaly</a>.</p>
         </aside>
       </div>
     </footer>
     <style>
-      {{ replaceRE " +" " " (replaceRE "\n" "" (partial "styles.css" .)) | safeCSS }}
+      {{ replaceRE " +" " " (replaceRE "\n" "" (partial "styles1.css" .)) | safeCSS }}
       {{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
       {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
     </style>

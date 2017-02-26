@@ -13,14 +13,16 @@
   </section>
 
   {{ range $key, $value := .Site.Taxonomies}}
-  <section>
-    <header>{{ $key | singularize }}</header>
-    <div>
-      <ul class="p-terms">
-        {{ range first 10 $value.Alphabetical }}<li><a href="{{ $.Site.BaseURL}}{{ $key }}/{{ .Name | urlize }}">{{ .Name }}</a></li>{{ end }}
-      </ul>
-    </div>
-  </section>
+  {{ end }}
+
+
+<section>
+  <header>Catégories</header>
+  <ul class="p-terms">
+  {{ range $name, $taxonomy := .Site.Taxonomies.catégories }}  
+    <li><a href="{{ "/catégories/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+</ul>
+</section>
   {{ end }}
 
 </aside>
